@@ -3,62 +3,50 @@
 ### Table of Contents
 
 1. [Project Motivation](#motivation)
-2. [Requirements](#requirements)
-3. [Installation Instructions](#installation)
+2. [Project Description](#description)
+3. [Requirements](#requirements)
 4. [Files Descriptions](#files)
-5. [Results](#results)
-6. [Licensing, Authors, and Acknowledgements](#licensing)
+5. [Licensing, Authors, and Acknowledgements](#licensing)
 
 ## Project Motivation<a name="motivation"></a>
 
-This project is part of the Data Science Nanodegree Program by Udacity in collaboration with figure Eight. The dataset contains pre-labelled tweet and messages from real life disaster events. The aim is to design a model to categorize massages on all 36 pre-defined categoties that can be sent to the appropriate disaster relief agency.
+This project is part of the Data Science Nanodegree Program by Udacity in collaboration with IBM. The dataset contains users interactions with articles on the IBM Watson Studio platform, the aim of this project is to make recommendations that users may like.
+
+## Project Description <a name="description"></a>
+
+This project focus in analyze the users interactions in the IBM Watson Studio and make recommendations based there interactions in the platform.
+
+## I. Exploratory Data Analysis
+
+Before making any recommendations, it's necessary to explore the data first. There are few basic questions that need to be answered about the data presented in this project. In the notebook, you can find some basic statistics that will help further in the later sections.
+
+## II. Rank Based Recommendations
+
+To iniciate the recommendations, it's showed the most popular articles simply based on the most interactions. Since there are no ratings for any of the articles, it is easy to assume the articles with the most interactions are the most popular. These are then the articles we might recommend to new users.
+
+## III. User-User Based Collaborative Filtering
+
+In order to build better recommendations for the users of IBM's platform, we could look at users that are similar in terms of the items they have interacted with. These items could then be recommended to the similar users. This would be a step in the right direction towards more personal recommendations for the users.
+
+## IV. Matrix Factorization
+
+Finally, we have complete machine learning approach to building recommendations. Using the user-item interactions, we have a matrix decomposition. Using that decomposition, we get an idea of how well it's predicting new articles that individuals might interact with (spoiler alert - it isn't great).
 
 ## Requirements <a name="requirements"></a>
 
 The code should run with no issues using Python versions 3 with the following libraries: 
-  - Machine Learning: NumPY, Scipy, Pandas, sklearn
-  - Natural Language Process: NLTK
-  - SQLite Database: SQLalchemy
+  - Machine Learning: NumPY, Pandas
   - Model Loading and Saving: Pickle
-  - Web App and Data Visualization: Flask, Plotly
-
-## Installation Instructions <a name="installation"></a>
-
-1. Run the following commands in the project's root directory to set up your database and model.
-
-    - To run ETL pipeline that cleans data and stores in database
-        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
-    - To run ML pipeline that trains classifier and saves
-        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
-
-2. Run the following command in the app's directory to run your web app.
-    `python run.py`
-
-3. Go to http://0.0.0.0:3001/ or http://localhost:3001/
+  - Data Visualization: Plotly
 
 ## File Descriptions <a name="files"></a>
 
 - **Data**
-  - disaster_categories.csv + disaster_messages.csv - *Datasets with all the necessary informations*
-  - process_data.py - *Code that reads and cleans the csv files and stores it in a SQL database.*
-  - db_disaster_messages.db - *Dataset created after the transformed and cleaned data from the disasters CSV files.*
-- Models
-  - train_classifer.py - *Code necessary to load data and run the machine learning model, this will create a pickle file at the end (classifier.pkl)*
-- App
-  - run.py - *Flask app and the user interface used to predict results and display them.*
-  - templates - *Folder containing the html template files*
-
-## Results <a name="results"></a>
-
-This is the expected frontpage from the website:
-![home](https://user-images.githubusercontent.com/77889112/111717758-77d5a100-8837-11eb-9dd9-40de2700bc72.png)
-
-
-By inputting a sentence it should be able to see the categorie result:
-![image](https://user-images.githubusercontent.com/77889112/111043899-0c996280-8424-11eb-9db6-7333ffdac071.png)
-
-There are other options for the pipeline in the **ML Pipeline Preparation.ipynb**. Feel free to change the **build_model()** function in the **train_classifier.py** file (models folder)
+  - articles_community.csv + user-item-interactions.csv - *Datasets with all the necessary informations*
+  - Recommendations_with_IBM.ipynb - *File with recommendations codes*
+  - Recommendations_with_IBM.html - *Copy of the ipynb file in html*
+  - top_10.p, top_20.p, top_5.p, user_item_matrix.p - *lists and matrix for checking the recommendation code*
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
-Must give credit to Figure Eigth for the data. Also, thank you the StackOverFlow community and Udacity  for the training! Otherwise, feel free to use the code here as you would like! 
+Must give credit to IBM Watson Studio for the data. Also, thank you Udacity for the training! Otherwise, feel free to use the code here as you would like! 
