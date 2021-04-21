@@ -39,7 +39,7 @@ The code should run with no issues using Python versions 3 with the following li
   - Model Loading and Saving: Pickle
   - Data Visualization: Plotly
 
-## File Descriptions <a name="files"></a>
+## Files Descriptions <a name="files"></a>
 
 - **Data**
   - articles_community.csv + user-item-interactions.csv - *Datasets with all the necessary informations*
