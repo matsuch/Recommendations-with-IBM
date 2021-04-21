@@ -1,4 +1,4 @@
-# Disaster Response Pipeline Project
+# Recommendations with IBM Project
 
 ### Table of Contents
 
